@@ -38,6 +38,27 @@ paths:
         "400":
           description: "bad input parameter"
       x-swagger-router-controller: "Developers"
+  /nearlyMuseum:
+    get:
+      tags:
+      - "developers"
+      summary: "searches museum"
+      description: "By passing in the appropriate options, you can search for\navailable\
+        \ inventory in the system\n"
+      operationId: "getNearlyMuseum"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "search results matching criteria"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Museum"
+        "400":
+          description: "bad input parameter"
+      x-swagger-router-controller: "Developers"
   /museums/{museumId}:
     get:
       tags:
@@ -86,9 +107,9 @@ definitions:
       phone:
         type: "string"
       long:
-        type: "integer"
+        type: "number"
       lat:
-        type: "integer"
+        type: "number"
     xml:
       name: "Musium"
     example:

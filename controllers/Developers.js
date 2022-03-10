@@ -13,6 +13,17 @@ module.exports.getAllMuseum = function getAllMuseum (req, res, next) {
     });
 };
 
+module.exports.getNearlyMuseum = function getNearlyMuseum (req, res, next) {
+  Developers.getNearlyMuseum()
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+
 module.exports.getMuseumById = function getMuseumById (req, res, next) {
   var museumId = req.swagger.params['museumId'].value;
   Developers.getMuseumById(museumId)
